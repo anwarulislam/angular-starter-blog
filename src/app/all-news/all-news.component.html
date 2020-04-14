@@ -1,0 +1,26 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">{{ 'news' | uppercase }}</h1>
+</div>
+
+<div class="text-center" *ngIf="isLoading">
+    Loading.......
+</div>
+
+
+<div class="row">
+    <div class="col-md-4" *ngFor="let article of articles">
+        <!-- Blog Post -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">
+                    {{ article.title }}
+                </h2>
+                <p class="card-text">
+                    {{ article.body | slice:0:100 }}
+                </p>
+                <a [routerLink]="['/article', article.id]" class="btn btn-primary">Read More &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
